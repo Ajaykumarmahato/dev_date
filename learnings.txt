@@ -1,0 +1,14 @@
+Setup nestjs cli and project
+=> npx @nestjs/cli new devmatch --package-manager npm --skip-git --directory .
+=> npm install
+=> npm run start:dev
+
+
+Creating a modules
+=> npx @nestjs/cli generate module profiles
+
+Creating a controller
+=> npx @nestjs/cli generate controller profiles
+
+Creating a service
+> npx @nestjs/cli generate service profiles
