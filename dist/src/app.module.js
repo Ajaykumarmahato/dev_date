@@ -13,12 +13,34 @@ const app_service_1 = require("./app.service");
 const profiles_module_1 = require("./profiles/profiles.module");
 const users_module_1 = require("./users/users.module");
 const config_1 = require("@nestjs/config");
+const mailer_1 = require("@nestjs-modules/mailer");
+const handlebars_adapter_1 = require("@nestjs-modules/mailer/dist/adapters/handlebars.adapter");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
+            mailer_1.MailerModule.forRoot({
+                transport: {
+                    host: "sandbox.smtp.mailtrap.io",
+                    port: 2525,
+                    auth: {
+                        user: "5678c3b969a189",
+                        pass: "****adeb"
+                    }
+                },
+                defaults: {
+                    from: '"Admin" <no-reply@admin.com>',
+                },
+                template: {
+                    dir: __dirname + '/templates',
+                    adapter: new handlebars_adapter_1.HandlebarsAdapter(),
+                    options: {
+                        strict: true,
+                    },
+                },
+            }),
             config_1.ConfigModule.forRoot({
                 isGlobal: true,
             }),

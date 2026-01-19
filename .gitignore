@@ -1,9 +1,7 @@
 
-/generated/prisma
+src/generated/prisma
 
-# =========================
-# Node / NestJS
-# =========================
+
 node_modules/
 dist/
 coverage/
