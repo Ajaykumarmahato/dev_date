@@ -15,5 +15,11 @@ Creating a service
 > npx @nestjs/cli generate service profiles
 
 
+
 to start project
 npm run start:dev
+
+
+prisma ORM
+
+migrate => npx prisma migrate dev --name init
