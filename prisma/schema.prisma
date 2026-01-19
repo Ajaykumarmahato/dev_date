@@ -23,7 +23,7 @@ model User {
   username String @unique @db.VarChar(50)
   email String @unique @db.VarChar(100)
   status Status @default(ACTIVE)
-  password String @db.VarChar(50)
+  password String @db.VarChar(255)
   emailVerifiedAt DateTime?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

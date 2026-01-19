@@ -6,7 +6,7 @@ CREATE TABLE `User` (
     `username` VARCHAR(50) NOT NULL,
     `email` VARCHAR(100) NOT NULL,
     `status` ENUM('ACTIVE', 'SUSPENDED') NOT NULL DEFAULT 'ACTIVE',
-    `password` VARCHAR(50) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
     `emailVerifiedAt` DATETIME(3) NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
