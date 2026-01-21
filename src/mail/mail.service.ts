@@ -4,14 +4,14 @@ import { MailerService } from '@nestjs-modules/mailer';
 @Injectable()
 export class MailService {
     constructor(private readonly mailerService: MailerService) {}
-    async sendWelcomeEmail(to: string, name: string, code: string) {
+    async sendEmailVerification(to: string, name: string, emailVerificationLink: string) {
         await this.mailerService.sendMail({
             to,
-            subject: 'Welcome to our app',
+            subject: 'Email Verification',
             template: './verifyEmail',
             context: {
                 name,
-                code,
+                emailVerificationLink,
             },
     });
   }

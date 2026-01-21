@@ -9,8 +9,10 @@ export class UsersService {
     constructor(private readonly prismaService: PrismaService, private readonly mailService: MailService){}
 
     async create(data: Prisma.UserCreateInput){
-        const hashed = await hashPassword(data.password)
-        await this.mailService.sendWelcomeEmail("eed@gmail.com", "name", "code");
-        return this.prismaService.user.create({data:{...data, password: hashed}});
+        const hashedPassword = await hashPassword(data.password)
+        const user = this.prismaService.user.create({data:{...data, password: hashedPassword}});
+        const emailVerificationLink = "this is a link"
+        await this.mailService.sendEmailVerification(data.email, data.firstName, emailVerificationLink);
+        return user;
     }
 }

@@ -20,7 +20,6 @@ model User {
   id Int @id @default(autoincrement())
   firstName String @db.VarChar(50)
   lastName String @db.VarChar(50)
-  username String @unique @db.VarChar(50)
   email String @unique @db.VarChar(100)
   status Status @default(ACTIVE)
   password String @db.VarChar(255)
